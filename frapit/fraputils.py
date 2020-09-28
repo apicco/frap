@@ -28,18 +28,27 @@ class Frap( Traj ) :
 		else :
 			raise AttributeError( 'tfrap is not defined' )
 
-	def loadfrap( self , file_name , sep = None , comment_char = '#', **attrs ) :
+	def loadfrap( self , file_name , sep = None , comment_char = '#', dt = np.nan , t_unit = '' , **attrs ) :
+
+		# load the frap data, min requirement is frame and f, t can be added throught dt.
 		self.load( file_name = file_name , sep = sep , comment_char = comment_char , **attrs )
-	
-		df = [ abs( self.f()[ i ] - self.f()[ i - 1 ] ) for i in range( 1 , len( self ) ) ] # delta f
 
+		# load the time information
+		if dt : 
+			if t_unit : 
+				self.time( dt , unit = t_unit )
+			else :
+				raise AttributeError( 'Please, specify the unit' )
 
+		# delta in fluorescence intenstiy to find the frap time and frame
+		df = [ abs( self.f()[ i ] - self.f()[ i - 1 ] ) for i in range( 1 , len( self ) ) ] 
 		i =  df.index( max( df ) ) + 1 
 
+		# assign the frap frame and time to frapframe and tfrap
 		self.input_values( 'frapframe' , [ self.frames()[ i ] ] * len( self ) )
 
-		if 't' in attrs.keys() :
-			self.input_values( 'tfrap' , [ self.tfrap()[ i ] ] * len( self ) )
+		if 't' in self.attributes() :
+			self.input_values( 'tfrap' , [ self.t()[ i ] ] * len( self ) )
 
 	def frapnorm( self , w = 10 , full_range = False ) :
 
@@ -60,3 +69,5 @@ class Frap( Traj ) :
 
 		self.input_values( 'f' , fn )
 		self.input_values( 'frames' , self.frames() - self.frapframe() )
+		if 't' in self.attributes() :
+			self.input_values( 't' , self.t() - self.tfrap() )
