@@ -19,6 +19,7 @@ The first time point after photobleaching happens is extracted with `my_frap.tfr
 The fluorescence intensity of the FRAP object can be normalised with 
 
 `my_frap.frapnorm( w = 10 , full_range = False )`
+
 where `w` is the nuber of frames before the photobleaching event, which are used to compute the average fluorescence intensity before photobleaching (default is `w = 10`). `full_range` is the normaglization range and can be `True` or `False` (default).
 By default, frapnorm sets time 0 to be the first time point after photobleaching (i.e. `my_frap.frapnorm().tfrap()` is equal to 0 )
 
