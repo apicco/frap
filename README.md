@@ -1,5 +1,5 @@
 # FRAP
-Toolbox for the analysis of FRAP experiments. It is built on the [trajaling](http://apicco.github.io/trajectory_alignment/) and [trajplot utilities](https://github.com/apicco/trajectory_plotting)
+Toolbox for the analysis of FRAP experiments. It is built on [trajaling](http://apicco.github.io/trajectory_alignment/) and [trajplot]a(https://github.com/apicco/trajectory_plotting)
 
 A FRAP object is defined as
 
