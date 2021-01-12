@@ -90,7 +90,7 @@ class Frap( Traj ) :
 		if maxfev : 
 			popt , pcov = curve_fit( self.func , x , y , maxfev = maxfev )
 		else :
-			popt , pcov = curve_fit( self.func , x , y)
+			popt , pcov = curve_fit( self.func , x , y )
 
 		self._mf = np.array( [ popt[ 0 ] , np.sqrt( np.diag( pcov )[ 0 ] ) ] )
 
