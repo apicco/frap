@@ -1,5 +1,7 @@
-# FRAP
+#FRAP
 Toolbox for the analysis of FRAP experiments. It is built on [trajalign](http://apicco.github.io/trajectory_alignment/) and [trajplot](https://github.com/apicco/trajectory_plotting)
+
+You can test this toolbox with some example data and in the [Google Colaboratory](https://bit.ly/frapit). The Colaboratory gives also the possibility to upload and analyse your own data: https://bit.ly/analyse-your-frap: 
 
 A FRAP object is defined as
 
