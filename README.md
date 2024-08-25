@@ -28,12 +28,7 @@ A FRAP object is defined as
 
 Its content is loaded with
 
-`my_frap.loadfrap(
-	file_name = 'foo_frap.txt' ,
-	dt = dt ,                                    
-	t_unit = 's' ,
-	frames = 0 ,                                 
-	f = 1 )`
+`my_frap.loadfrap( file_name = 'foo_frap.txt' , dt = dt , t_unit = 's' , frames = 0 , f = 1 )`
 
 The first time point after photobleaching happens is extracted with `my_frap.tfrap()`, and the first frame with `my_frap.frapframe()`.
 
