@@ -6,22 +6,19 @@ You can test this toolbox with some trajectory example data and in the [Google C
 
 ## Image preparation
 
-The image needs to be background subtracted and corrected for photobleaching: the photobleaching due to the imaging and the photobleaching due to the FRAP event itself. 
+The image needs to be background subtracted and corrected for photobleaching: the photobleaching caused by imaging and the photobleaching caused by the FRAP event itself.
 
-When imaging yeast cells with epifluorescence illumination to do local photobleaching, we can correct the image with the BGN_FRAP_V1.ijm FIJI plugin. Yeast cells generally have a distinctive cytoplasmatic background, allowing for easy cell boundary detection.
-The plugin performs 
+When imaging yeast cells with epifluorescence illumination to do local photobleaching, we can correct the Image with the BGN_FRAP_V1.ijm FIJI plugin. Yeast cells generally have a distinctive cytoplasmatic background, allowing for easy cell boundary detection. The plugin performs
 1) background subtraction 
 2) detects the cell 
 3) and levels the brightness of the cytoplasm to correct for any photobleaching.
 
-It is important that the plugin be run on a crop of the single cell where the FRAP experiment is performed.
-A larger field of view would dilute the photobleaching correction following the actual FRAP experiment.
-
-Two images are output: 
-\_FRAPN.tif,  which is the image background subtracted and normalised for FRAP
+The plugin must be run on a crop of the single cell where the FRAP experiment is performed. A larger field of view would dilute the photobleaching correction following the actual FRAP experiment.
+Two images are output:
+\_FRAPN.tif, the image background subtracted and normalised for FRAP, and 
 \_FRAPN_MD.tif, which is \_FRAPN.tif with the cytoplasmatic background subtracted by median filtering.
 
-Generally, \_FRAPN.tif should be used to quantify the FRAP. To do so, it is sufficient to circle the photo-bleached spot and measure its intensity over time (for example, with Image>Stacks>Plot Z-axis Profile). The values can be saved on a .txt file.
+Generally, \_FRAPN.tif should be used to quantify the FRAP. It is sufficient to circle the photo-bleached spot and measure its intensity over time (for example, with Image>Stacks>Plot Z-axis Profile). The values can be saved on a .txt file.
  
 ## Trajectory analysis 
 
